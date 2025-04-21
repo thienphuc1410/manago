@@ -46,6 +46,23 @@
   <script type="text/javascript" src="//direeyesightstray.com/574fa1e1722386d6af913fea334966d2/invoke.js"></script>
 
   </div>
+
+    <script>
+    function getQueryParam(param) {
+      let queryString = window.location.search;
+      let urlParams = new URLSearchParams(queryString);
+      return urlParams.get(param);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const lParam = getQueryParam('l');
+      if (lParam) {
+        const newSrc = 'https://mangatoto.org/' + lParam;
+        document.getElementById('main-iframe').src = newSrc;
+      }
+    });
+  </script>
+  
   <script src="../script.js"></script>
   <footer>
     <p>Copyright © 2025 | Mangago</p>
