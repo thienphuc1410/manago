@@ -48,24 +48,27 @@
   </div>
 
     <script>
-    // Hàm lấy giá trị của tham số trong URL
-    function getQueryParam(param) {
-      let queryString = window.location.search;
-      let urlParams = new URLSearchParams(queryString);
-      return urlParams.get(param);
+     
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const lParam = getQueryParam('l');
+    let newSrc;
+
+    if (lParam) {
+      
+      newSrc = 'https://mangatoto.org/' + lParam;
+    } else {
+      
+      newSrc = 'https://sololevelingmanga.click/';
     }
 
-    // Đợi cho DOM được load xong
-    document.addEventListener('DOMContentLoaded', function() {
-      // Lấy tham số "l" từ URL. Ví dụ: ?l=title/83510-one-piece-official/1648100-ch_1
-      const lParam = getQueryParam('l');
-      if (lParam) {
-        // Tạo URL mới bằng cách ghép thêm chuỗi cơ sở
-        const newSrc = 'https://mangatoto.org/' + lParam;
-        // Thay đổi thuộc tính src của iframe
-        document.getElementById('main-iframe').src = newSrc;
-      }
-    });
+    document.getElementById('main-iframe').src = newSrc;
+  });
   </script>
   
   <script src="../script.js"></script>
